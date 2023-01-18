@@ -45,12 +45,12 @@ export default function Navbar() {
 
   return (
     <>
-      <Box bg={useColorModeValue('blue.400')} px={4}>
+      <Box bg={useColorModeValue('blue.400')} px={4} >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
          
           <HStack spacing={8} alignItems={'center'}>
             <Box ml="250px"  w="50px" h="50px"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM2DAqDI_bCUv59V0fKRl4gC5prkJQ4uizqw&usqp=CAU" /></Box>
-           <Box w="390px" display="flex"  bg="white"><Input w="350px" placeholder="Search Products here"  bg="white" border="none"  baseStyle="none"  /><Search2Icon mt="10px" fontSize="20px" color="blue"/></Box> 
+           <Box w="400px"  display="flex"  bg="white"><Input w="350px" placeholder="Search Products here"  bg="white" border="none"  baseStyle="none"  /><Search2Icon mt="10px" fontSize="20px" color="blue"/></Box> 
            <Menu   isOpen={isOpen}>
             <MenuButton
                 variant="ghost"
@@ -66,7 +66,7 @@ export default function Navbar() {
             >
                <Button
               w="100px"
-    
+             marginTop={"5px"}
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
@@ -107,7 +107,7 @@ export default function Navbar() {
               
             </HStack>
           </HStack>
-          <Flex alignItems={'center'}>
+          <Flex alignItems={'center'} marginRight="30px">
             <Menu>
               <MenuButton
                 as={Button}
@@ -118,7 +118,7 @@ export default function Navbar() {
                 <Avatar
                   size={'sm'}
                   src={
-                    'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
+                    'A1(4).JPG'
                   }
                 />
               </MenuButton>
@@ -143,8 +143,7 @@ export default function Navbar() {
         ) : null}
       </Box>
      
-     
-      <Box p={4}>Main Content Here</Box>
+   
     </>
   );
 }
