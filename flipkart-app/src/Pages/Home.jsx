@@ -1,20 +1,84 @@
-import { Avatar, Box ,Text,Image,Heading} from '@chakra-ui/react';
-import { Grid, GridItem } from '@chakra-ui/react'
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import { Avatar, Box ,Text,Image,Heading ,Button} from '@chakra-ui/react';
+
+import {useState,useEffect} from 'react'
+import axios from 'axios';
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { Carousel } from 'react-responsive-carousel';
+
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import Carousel123 from './Slider ';
+import { Navigate } from 'react-router-dom';
+
+
 
 function Home(){
+    const [slider1data,setslider1data]=useState([])
+    const [slider2data,setslider2data]=useState([])
+    const [slider3data,setslider3data]=useState([])
+    const [slider4data,setslider4data]=useState([])
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
+    useEffect(()=>{
+      axios.get('http://localhost:8080/slider1')
+      .then((res)=>setslider1data(res.data))
+      axios.get('http://localhost:8080/slider2')
+      .then((res)=>setslider2data(res.data))
+      axios.get('http://localhost:8080/slider3')
+      .then((res)=>setslider3data(res.data))
+      axios.get('http://localhost:8080/slider4')
+      .then((res)=>setslider4data(res.data))
+
+
+    },[])
+  
+//  console.log(slider1data)
+  
+      const responsive = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 5
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 4
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 2
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1
+        },
       };
-    return <>
+      const responsive1 = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 5
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 5
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 2
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1
+        },
+      };
 
-<Box border="1px solid red" display="grid" gridTemplateColumns="repeat(9,1fr)" gap="80px" padding="20px 30px">
+      const handleclick=()=>{
+       <Navigate to="/watchesproducts"/>
+      }
+      
+    return <Box >
+
+<Box shadow="rgba(0, 0, 0, 0.1) 0px 1px 2px 0px" display="grid" gridTemplateColumns="repeat(9,1fr)" gap="80px" padding="20px 40px 10px 40px">
    
    <Box> <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/47e5c31ef7dcce1e.png?q=100" size="20px" /><Text    fontWeight={600}>Top offers</Text></Box>
      <Box>     <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/5f8bd5669e19e724.png?q=100"/><Text fontWeight={600}>Mobile & Tablets</Text></Box>
@@ -30,53 +94,116 @@ function Home(){
     {/* ********MainBox Start********** */}
     <Box paddingRight={"10px"} paddingLeft="10px">
    
-   <Box  border="1px solid blue" w="100%" h="300px" marginTop={"20px"}> 
-   <Carousel>
-                <div>
-                    <img src="https://images-static.nykaa.com/uploads/8fa1b0a2-80af-4f6d-85f6-9af376c2abf6.jpg?tr=w-1200,cm-pad_resize" />
-                   
-                </div>
-                <div>
-                    <img src="https://images-static.nykaa.com/uploads/5642d441-3632-4529-86a8-3febfbeac3b9.jpg?tr=w-1200,cm-pad_resize"/>
-                   
-                </div>
-                <div>
-                    <img src="https://images-static.nykaa.com/uploads/a5331485-39ce-4652-8d66-4b3679670a9d.jpg?tr=w-1200,cm-pad_resize" />
-                   
-                </div>
-                <div>
-                    <img src="https://images-static.nykaa.com/uploads/f3d93a48-43fa-4a30-b546-98faf39d0492.jpg?tr=w-1200,cm-pad_resize" />
-                   
-                </div>
-                <div>
-                    <img src="https://images-static.nykaa.com/uploads/8857bca2-a61e-47bf-9acc-e8cb6ecda223.jpg?tr=w-1200,cm-pad_resize" />
-                   
-                </div>
-            </Carousel></Box>
-    <Box mt="10px"  paddingTop={"20px"}paddingBottom={"20px"}>
-        <Box  border="1px solid red"  >
-           <Image _hover={{
-               
-               shadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
+   <Box  border="1px solid blue" w="100%" h="100px" marginTop={"20px"}> 
+            
+            </Box>
+    <Box   paddingTop={"20px"}paddingBottom={"20px"}>
+        <Box    >
+           <Image 
              
-               transform: "scale(1.03)"
-             }}  m="auto" w="90%" h="300px"src="https://images-eu.ssl-images-amazon.com/images/G/31/img16/vineet/Amazon-Pay-Later/Jan_23/Jan_ART/1150x323_GW-editorial._CB615648357_.jpg"/>
+               m="auto" w="100%" h="300px"src="https://images-static.nykaa.com/uploads/fe3ae51e-028c-47f2-91b8-ddbec3f11e7e.jpg?tr=w-1200,cm-pad_resize"/>
         
             </Box>
             </Box>
-            <Box mt="10px" border="1px solid red" w="100%" h="300px"></Box>
-            <Box mt="10px"  w="100%" h="500px" display="grid" gridTemplateColumns="repeat(3,1fr)" >
+            <Box  w="100%" h="300px">
+               {/* ********* Carousel-1******* */}
+
+<Box mt ="10px"  w="100%" h="300px" display="flex" justifyContent={"space-between"} shadow="rgba(50, 50,93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px" >
+    <Box w="17%" h="180px" paddingTop ="20px"shadow="rgba(0, 0, 0, 0.05) 0px 1px 2px 0px">
+   <Box marginTop={"50px"} >   <Heading w="70%"  ml='40px' as='h3' size='lg'a>Top offers</Heading></Box>
+      <Box>
+      <Button 
+              w="100px"
+             marginTop={"5px"}
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              mt="20px"
+              color={'white'}
+              bg={'blue.600'}
+              marginBottom="10px"
+              href={'#'}
+              _hover={{
+                bg: 'green.800',
+              }}>
+            View All
+            </Button>
+            </Box>
+            <Box bg="green" h="70%" ></Box>
+      </Box>
+    <Box w="60%" paddingTop="10px"> 
+
+  
+     <Carousel  responsive={responsive}>
+   
+  {slider2data.map((e)=>
+       <Box _hover={{
+               
+        transform: "scale(1.06)"
+      }}   >
+        <Box w="170px" h="170px" padding="5px" 
+        >  <Image w="100%" h="100%" ml="5px"src={e.img}/></Box>
+      
+       <Box  h="100px" padding="10px">
+        <Heading as='h6' size='xs'>{e.title}</Heading>
+       <Text color="green">{e.price}</Text>
+                <Text color="gray">{e.des}</Text></Box>
+       
+       </Box>
+  )}
+ 
+  
+  
+   
+  
+ </Carousel>
+ </Box>
+ <Box w="17%"  shadow="rgba(0, 0, 0, 0.05) 0px 1px 2px 0px">
+ <Image w="95%" h="95%" src="https://rukminim1.flixcart.com/fk-p-flap/464/708/image/75d268757cae49bf.jpeg?q=70"/>
+ </Box>
+ 
+</Box>
+
+
+
+
+            </Box>
+            <Box mt="10px"  w="100%" h="500px" display="grid" gridTemplateColumns="repeat(3,1fr)"   >
             <Box  w="1320px" h="500px" paddingLeft={"5px"} display="grid" gridTemplateColumns="repeat(3,1fr)" gap="20px" >
-<Box> <img src="https://images-static.nykaa.com/uploads/88a7cc59-5262-4ef2-8e2f-5c8d9475c47e.jpg?tr=w-600,cm-pad_resize" alt="" />   </ Box>
-<Box><Image src="https://images-static.nykaa.com/uploads/c8bc8f6b-647b-4dfb-897f-d85330fdc747.jpg?tr=w-600,cm-pad_resize" alt=""/> </Box>
-<Box><Image  src="https://images-static.nykaa.com/uploads/2f8eafa3-ba57-42e3-825b-a50c1e478610.jpg?tr=w-600,cm-pad_resize" alt=""/> </Box>
-<Box><Image  src="https://images-static.nykaa.com/uploads/1ce2fd26-9ad5-44ba-9099-f9b44f59cc2d.jpg?tr=w-600,cm-pad_resize" alt=""/> </Box>
-<Box><Image  src="https://images-static.nykaa.com/uploads/0a66c6fe-084f-42e1-aae7-e6b4286ea20f.gif?tr=w-600,cm-pad_resize" alt=""/> </Box>
-<Box><Image h="90%" w="110%" src="https://images.meesho.com/images/marketing/1631722939962.webp" alt=""/> </Box>
+<Box> <Image _hover={{
+               
+               transform: "scale(1.06)",
+               shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
+             }} src="https://images-static.nykaa.com/uploads/88a7cc59-5262-4ef2-8e2f-5c8d9475c47e.jpg?tr=w-600,cm-pad_resize" alt="" />   </ Box>
+<Box><Image _hover={{
+               
+               transform: "scale(1.06)",
+               shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
+             }} src="https://images-static.nykaa.com/uploads/c8bc8f6b-647b-4dfb-897f-d85330fdc747.jpg?tr=w-600,cm-pad_resize" alt=""/> </Box>
+<Box><Image _hover={{
+               
+               transform: "scale(1.06)",
+               shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
+             }} src="https://images-static.nykaa.com/uploads/2f8eafa3-ba57-42e3-825b-a50c1e478610.jpg?tr=w-600,cm-pad_resize" alt=""/> </Box>
+<Box><Image _hover={{
+               
+               transform: "scale(1.06)",
+               shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
+             }} src="https://images-static.nykaa.com/uploads/1ce2fd26-9ad5-44ba-9099-f9b44f59cc2d.jpg?tr=w-600,cm-pad_resize" alt=""/> </Box>
+<Box><Image _hover={{
+               
+               transform: "scale(1.06)",
+               shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
+             }} src="https://images-static.nykaa.com/uploads/0a66c6fe-084f-42e1-aae7-e6b4286ea20f.gif?tr=w-600,cm-pad_resize" alt=""/> </Box>
+<Box><Image  _hover={{
+               
+               transform: "scale(1.06)",
+               shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
+             }}  h="87%" w="110%" src="https://images.meesho.com/images/marketing/1631722939962.webp" alt=""/> </Box>
 </Box>
             </Box>
 
-            <Box mt="10px" w="100%" h="auto" display="grid" gridTemplateColumns="repeat(6,1fr)"  paddingTop={"30px"} paddingLeft="40px">
+            <Box mt="10px" w="100%" h="auto" display="grid" gridTemplateColumns="repeat(6,1fr)"  paddingTop={"30px"} paddingLeft="40px" shadow="rgba(50, 50,93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px">
             <Box    _hover={{
                
                 transform: "scale(1.06)"
@@ -126,7 +253,7 @@ function Home(){
                 <Text color="gray">Wedding</Text>
                 </Box>
             </Box>
-            <Box mt="10px"w="100%" h="auto" display="grid" gridTemplateColumns="repeat(6,1fr)"  paddingTop={"30px"} paddingLeft="40px">
+            <Box mt="10px"w="100%" h="auto" display="grid" gridTemplateColumns="repeat(6,1fr)"  paddingTop={"30px"} paddingLeft="40px" shadow="rgba(50, 50,93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px">
                 <Box  _hover={{
                
                transform: "scale(1.06)"
@@ -179,7 +306,7 @@ function Home(){
                 
             </Box>
 
-            <Box mt="10px"  w="100%" h="500px" display="grid" gridTemplateColumns="repeat(3,1fr)" >
+            <Box mt="10px"  w="100%" h="250px" display="grid" gridTemplateColumns="repeat(3,1fr)" >
             <Box  w="1320px" h="500px" paddingLeft={"5px"} display="grid" gridTemplateColumns="repeat(3,1fr)" gap="20px" >
 <Box> <img src="https://images-static.nykaa.com/uploads/78882d64-589e-4759-afe1-90b56d2593c8.jpg?tr=w-600,cm-pad_resize" alt="" />   </ Box>
 <Box><Image src="https://images-static.nykaa.com/uploads/6488fa68-0be2-482f-ac2c-61935e41c2cc.gif?tr=w-600,cm-pad_resize" alt=""/> </Box>
@@ -189,10 +316,176 @@ function Home(){
             </Box>
 
 
+ {/* ********* Carousel-2******* */}
+
+<Box mt ="10px"  w="100%" h="300px" display="flex" justifyContent={"space-between"} shadow="rgba(50, 50,93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px">
+    <Box w="17%" mt="20px" shadow="rgba(0, 0, 0, 0.05) 0px 1px 2px 0px">
+      <Heading w="70%"   ml='40px'mt="20px" as='h3' size='lg'a>Best of Electronis</Heading>
+      <Button 
+              w="130px"
+             marginTop={"5px"}
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              mt="60px"
+              color={'white'}
+              bg={'blue.600'}
+              href={'#'}
+              _hover={{
+                bg: 'green.800',
+              }}>
+              View All
+            </Button>
+      </Box>
+    <Box w="80%"> 
+
+  
+     <Carousel  responsive={responsive1}>
+   
+  {slider1data.map((e)=>
+       <Box _hover={{
+               
+        transform: "scale(1.06)"
+      }}   >
+        <Box h="200px" padding="10px"  onClick={handleclick}
+        >  <Image h="100%" ml="5px"src={e.img}/></Box>
+      
+       <Box  h="100px" padding="10px">
+        <Heading as='h6' size='xs'>{e.title}</Heading>
+       <Text color="green">{e.price}</Text>
+                <Text color="gray">{e.des}</Text></Box>
+       
+       </Box>
+  )}
+ 
+  
+  
+   
+  
+ </Carousel>
+ </Box>
+ 
+</Box>
+
+<Box mt="10px"  w="100%" h="250px" display="grid" gridTemplateColumns="repeat(3,1fr)" >
+            <Box  w="1320px" h="500px" paddingLeft={"5px"} display="grid" gridTemplateColumns="repeat(3,1fr)" gap="20px" >
+<Box> <img src="https://images-static.nykaa.com/uploads/a347c589-a317-4e47-b6cc-3da12019048e.jpg?tr=w-400,cm-pad_resize" alt="" />   </ Box>
+<Box><Image src="https://images-static.nykaa.com/uploads/2162e758-1aa6-4663-9f11-be2013e2f3cd.jpg?tr=w-400,cm-pad_resize" alt=""/> </Box>
+<Box><Image  src="https://images-static.nykaa.com/creatives/cd024e6f-a9d4-4db1-81e5-fa68e85534aa/default.jpg?tr=w-400,cm-pad_resize" alt=""/> </Box>
+
+</Box>
+            </Box>
+{/* ********* Carousel-3******* */}
+
+<Box mt ="10px"  w="100%" h="300px" display="flex" justifyContent={"space-between"} shadow="rgba(50, 50,93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px">
+    <Box w="17%" mt="20px" shadow="rgba(0, 0, 0, 0.05) 0px 1px 2px 0px">
+      <Heading w="70%"   ml='40px'mt="20px" as='h3' size='lg'a>Best Fashion Brand For you</Heading>
+      <Button 
+              w="130px"
+             marginTop={"5px"}
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              mt="60px"
+              color={'white'}
+              bg={'blue.600'}
+              href={'#'}
+              _hover={{
+                bg: 'green.800',
+              }}>
+              View All
+            </Button>
+      </Box>
+    <Box w="80%"> 
+
+  
+     <Carousel  responsive={responsive1}>
+   
+  {slider3data.map((e)=>
+       <Box _hover={{
+               
+        transform: "scale(1.06)"
+      }}   >
+        <Box h="200px" padding="10px" 
+        >  <Image h="100%" ml="5px"src={e.img}/></Box>
+      
+       <Box  h="100px" padding="10px">
+        <Heading as='h6' size='xs'>{e.title}</Heading>
+       <Text color="green">{e.price}</Text>
+                <Text color="gray">{e.des}</Text></Box>
+       
+       </Box>
+  )}
+ 
+  
+  
+   
+  
+ </Carousel>
+ </Box>
+ 
+</Box>
 
 
+{/* ********* Carousel-4******* */}
+
+<Box mt ="10px"  w="100%" h="300px" display="flex" justifyContent={"space-between"} shadow="rgba(50, 50,93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px">
+    <Box w="17%" mt="20px" shadow="rgba(0, 0, 0, 0.05) 0px 1px 2px 0px">
+      <Heading w="70%"   ml='40px'mt="20px" as='h3' size='lg'a>TV'S and Appliances</Heading>
+      <Button 
+              w="130px"
+             marginTop={"5px"}
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              mt="60px"
+              color={'white'}
+              bg={'blue.600'}
+              href={'#'}
+              _hover={{
+                bg: 'green.800',
+              }}>
+              View All
+            </Button>
+      </Box>
+    <Box w="80%"> 
+
+  
+     <Carousel  responsive={responsive1}>
+   
+  {slider4data.map((e)=>
+       <Box _hover={{
+               
+        transform: "scale(1.06)"
+      }}   >
+        <Box h="200px" padding="10px" 
+        >  <Image w="80%" h="80%" ml="5px"src={e.img}/></Box>
+      
+       <Box  h="100px" padding="10px">
+        <Heading as='h6' size='xs'>{e.title}</Heading>
+       <Text color="green">{e.price}</Text>
+                <Text color="gray">{e.des}</Text></Box>
+       
+       </Box>
+  )}
+ 
+  
+  
+   
+  
+ </Carousel>
+ </Box>
+ 
+</Box>
 
 
+    
+
+{/* *********Auto Slider********* */}
+    <Box border="1px solid red">
+    {/* <App1/> */}
+  
+    </Box>
 
           
 
@@ -203,7 +496,7 @@ function Home(){
     </Box>
 
     
-    </>
+    </Box>
 }
 
 export default Home;
