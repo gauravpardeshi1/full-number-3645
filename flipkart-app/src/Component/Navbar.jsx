@@ -23,7 +23,7 @@ import {
 import { Input } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
-const Links = ['Become a seller', 'More', 'Team' ];
+const Links = ['Become a seller', 'More', 'Cart' ];
 
 const NavLink = ({ children }) => (
   <Link
@@ -49,7 +49,7 @@ export default function Navbar() {
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
          
           <HStack spacing={8} alignItems={'center'}>
-            <Box ml="250px"  w="50px" h="50px"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM2DAqDI_bCUv59V0fKRl4gC5prkJQ4uizqw&usqp=CAU" /></Box>
+            <Box ml="250px"  w="50px" h="50px"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwoD94XDfvj9BmL6IA0Svzisv6poq3NNOX9g&usqp=CAU" /></Box>
            <Box w="400px"  display="flex"  bg="white"><Input w="350px" placeholder="Search Products here"  bg="white" border="none"  baseStyle="none"  /><Search2Icon mt="10px" fontSize="20px" color="blue"/></Box> 
            <Menu   isOpen={isOpen}>
             <MenuButton
