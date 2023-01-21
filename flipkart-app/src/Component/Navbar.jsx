@@ -1,5 +1,5 @@
 import { Search2Icon } from '@chakra-ui/icons'
-
+import { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
 
@@ -14,6 +14,7 @@ import {
   Menu,
   MenuButton,
   MenuList,
+  Text,
   MenuItem,
   MenuDivider,
   useDisclosure,
@@ -22,6 +23,7 @@ import {
 } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { Navigate } from 'react-router-dom';
 
 const Links = ['Become a seller', 'More', 'Cart' ];
 
@@ -35,24 +37,34 @@ const NavLink = ({ children }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}>
+    href={'/cart'}>
     {children}
   </Link>
 );
 
 export default function Navbar() {
+   
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const [login,setlogin]=useState(false)
+  
+  const login1=()=>{
+   setlogin(true)
+  }
+  if(login){
+   return  <Navigate to="/"/>
+   }
+   
+  
   return (
     <>
-      <Box bg={useColorModeValue('blue.400')} px={4} >
+      <Box bg={('blue.400')} px={4} >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
          
           <HStack spacing={8} alignItems={'center'}>
-            <Box ml="250px"  w="50px" h="50px"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwoD94XDfvj9BmL6IA0Svzisv6poq3NNOX9g&usqp=CAU" /></Box>
-           <Box w="400px"  display="flex"  bg="white"><Input w="350px" placeholder="Search Products here"  bg="white" border="none"  baseStyle="none"  /><Search2Icon mt="10px" fontSize="20px" color="blue"/></Box> 
+            <Box ml="250px"  w="50px" h="50px" > <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwoD94XDfvj9BmL6IA0Svzisv6poq3NNOX9g&usqp=CAU" /></Box>
+           <Box w="400px"  display="flex"  bg="white"><Input w="100%" placeholder="Search for Products Brands & more" borderRadius={"0rem"} bg="white"  paddingLeft={"35px"} /><Search2Icon position={"absolute"} mt="12px" ml="5px" fontSize="18px" color="blue"/></Box> 
            <Menu   isOpen={isOpen}>
-            <MenuButton
+            <MenuButton 
                 variant="ghost"
                 mx={1}
                 py={[1, 2, 2]}
@@ -64,7 +76,7 @@ export default function Navbar() {
                 onMouseEnter={onOpen}
                 onMouseLeave={onClose}
             >
-               <Button
+              <Button  
               w="100px"
              marginTop={"5px"}
               display={{ base: 'none', md: 'inline-flex' }}
@@ -76,10 +88,12 @@ export default function Navbar() {
               _hover={{
                 bg: 'green.100',
               }}>
-              Login
+              Login 
             </Button>
             </MenuButton>
             <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
+            <MenuItem>New Customer?<Text ml="10px" fontWeight={500} color="blue" > <Link to={`/login`}>Sign Up</Link></Text></MenuItem>
+                <MenuDivider />
                 <MenuItem>My Profile</MenuItem>
                 <MenuDivider />
                 <MenuItem>Flipcart Plus Zone</MenuItem>
@@ -96,29 +110,31 @@ export default function Navbar() {
             </MenuList>
         </Menu>
             
-            <HStack
+            <HStack 
               color="white"
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              {/* {Links.map((link) => ( */}
+             <NavLink  >Become a seller</NavLink>
+             <NavLink  >More</NavLink>
+             <NavLink >Cart</NavLink>
+              {/* // ))} */}
               
             </HStack>
           </HStack>
           <Flex alignItems={'center'} marginRight="30px">
-            <Menu>
+          <Menu>
               <MenuButton
                 as={Button}
                 rounded={'full'}
                 variant={'link'}
                 cursor={'pointer'}
                 minW={0}>
-                <Avatar
+              <Avatar 
                   size={'sm'}
                   src={
-                    'A1(4).JPG'
+                    'https://media.licdn.com/dms/image/D5603AQGopbg0SN2XkQ/profile-displayphoto-shrink_100_100/0/1672951836707?e=1679529600&v=beta&t=QxbebalxSFJ-ZFBQKWY2NBfJr0bjvKUkeu40NkpM8nE'
                   }
                 />
               </MenuButton>

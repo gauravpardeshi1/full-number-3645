@@ -8,6 +8,7 @@ import axios from 'axios';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Carousel123 from './Slider ';
+import { useNavigate } from "react-router-dom";
 import { Navigate } from 'react-router-dom';
 
 
@@ -17,7 +18,9 @@ function Home(){
     const [slider2data,setslider2data]=useState([])
     const [slider3data,setslider3data]=useState([])
     const [slider4data,setslider4data]=useState([])
-
+    const [nav,setnav]=useState(false)
+    const [nav1,setnav1]=useState(false)
+    const [nav2,setnav2]=useState(false)
     useEffect(()=>{
       axios.get('http://localhost:8080/slider1')
       .then((res)=>setslider1data(res.data))
@@ -71,20 +74,40 @@ function Home(){
           items: 1
         },
       };
-
-      const handleclick=()=>{
-       <Navigate to="/watchesproducts"/>
+     
+     // let navigate1 = useNavigate(); 
+      const routeChange1 = () =>{ 
+        setnav(true)
+       
       }
+      const routeChange = () =>{ 
+        setnav1(true)
+       
+      }
+      const routeChange2 = () =>{ 
+        setnav2(true)
+       
+      }
+      if(nav){
+        return <Navigate to="/Electronicproducts"/>
+      }
+      if(nav1){
+        return <Navigate to="/watchesproducts"/>
+      }
+      if(nav2){
+        return <Navigate to="/mobilesproducts"/>
+      }
+      
       
     return <Box >
 
 <Box shadow="rgba(0, 0, 0, 0.1) 0px 1px 2px 0px" display="grid" gridTemplateColumns="repeat(9,1fr)" gap="80px" padding="20px 40px 10px 40px">
    
-   <Box> <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/47e5c31ef7dcce1e.png?q=100" size="20px" /><Text    fontWeight={600}>Top offers</Text></Box>
-     <Box>     <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/5f8bd5669e19e724.png?q=100"/><Text fontWeight={600}>Mobile & Tablets</Text></Box>
-     <Box>  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/361d53b8725c2d2d.png?q=100"/><Text fontWeight={600}>Electronics</Text></Box>
-     <Box>  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/904f3c8e7101408b.png?q=100"/><Text fontWeight={600}>TV Appliances</Text></Box>
-     <Box>  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/7f7355480c6adc16.png?q=100"/><Text fontWeight={600}>Fashion</Text></Box>
+   <Box onClick={routeChange}> <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/47e5c31ef7dcce1e.png?q=100" size="20px" /><Text    fontWeight={600}>Top offers</Text></Box>
+     <Box onClick={routeChange2}>     <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/5f8bd5669e19e724.png?q=100"/><Text fontWeight={600}>Mobile & Tablets</Text></Box>
+     <Box onClick={routeChange1}>  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/361d53b8725c2d2d.png?q=100"/><Text fontWeight={600}>Electronics</Text></Box>
+     <Box  onClick={routeChange1}>  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/904f3c8e7101408b.png?q=100"/><Text fontWeight={600}>TV Appliances</Text></Box>
+     <Box  >  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/7f7355480c6adc16.png?q=100"/><Text fontWeight={600}>Fashion</Text></Box>
      <Box>  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/f97d6138516056bc.png?q=100"/><Text fontWeight={600}>Beauty</Text></Box>
      <Box><img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/6728ed3cf145562c.png?q=100"/><Text fontWeight={600}>Home & Furniture</Text></Box>
      <Box> <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/007910082ae6355b.png?q=100"/><Text fontWeight={600}>Flights</Text></Box>
@@ -347,7 +370,7 @@ function Home(){
                
         transform: "scale(1.06)"
       }}   >
-        <Box h="200px" padding="10px"  onClick={handleclick}
+        <Box h="200px" padding="10px"  onClick={routeChange}
         >  <Image h="100%" ml="5px"src={e.img}/></Box>
       
        <Box  h="100px" padding="10px">
@@ -458,7 +481,7 @@ function Home(){
                
         transform: "scale(1.06)"
       }}   >
-        <Box h="200px" padding="10px" 
+        <Box h="200px" padding="10px" onClick={routeChange1}
         >  <Image w="80%" h="80%" ml="5px"src={e.img}/></Box>
       
        <Box  h="100px" padding="10px">

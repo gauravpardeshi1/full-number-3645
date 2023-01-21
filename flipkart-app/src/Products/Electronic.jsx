@@ -1,20 +1,38 @@
 import { Heading ,Box ,Image,Text,Button,MenuList,MenuItem,MenuDivider, useDisclosure,Menu,} from "@chakra-ui/react";
 import {useState,useEffect} from 'react'
+import { useRef } from "react";
 import axios from 'axios';
 import {ChevronDownIcon} from '@chakra-ui/icons'
+import { Link } from "react-router-dom";
 export default function Electronic(){
+    
     const { isOpen, onOpen, onClose } = useDisclosure();
 const[TVdata,setTVdata]=useState([])
-
+const[val,setval]=useState("")
 useEffect(()=>{
-    axios.get('http://localhost:8080/Tv')
+    getData()
+},[val])
+
+const getData = ()=>{
+    axios.get(`http://localhost:8080/Tv?_sort=price&_order=${val}`)
     .then((res)=>setTVdata(res.data))
-},[])
+   
+   }
+   
+   
 
-
+ 
+  const handleSort = (val)=>{
+    console.log(val)
+    setval(val)
+  
+    
+ 
+ }
+ 
     return <>
     
-    <Heading>Electronic Products Page</Heading>
+  
     {/* {watchdata.map((e)=> */}
 
 
@@ -27,8 +45,8 @@ useEffect(()=>{
 <Box w="25%" h="auto" shadow="rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px">
 
 <Box  shadow="rgba(17, 17, 26, 0.1) 0px 1px 0px"  w="100%" h="100px" display={"flex"} justifyContent="space-evenly" padding="25px">
-    <Button bg="green.500" color="white" w="100px">ASC</Button>
-    <Button  bg="green.500" color="white" w="100px">DSC</Button>
+    <Button bg="green.500" color="white" w="100px"  onClick={()=>handleSort('asc')}>ASC</Button>
+    <Button  bg="green.500" color="white" w="100px"  onClick={()=>handleSort('desc')}>DSC</Button>
 </Box>
 <Box   w="100%" h="500px">
 
@@ -45,14 +63,14 @@ useEffect(()=>{
 
 <Box w="100%" shadow="rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px" >
 {TVdata.map((e)=> 
-<Box w="100%"     h="300px"shadow="rgba(0, 0, 0, 0.05) 0px 0px 0px 1px" display="flex" justifyContent={"space-between"} gap="10px" paddingBottom={"-10px"}>
-   <Box w="25%" h="auto" padding="30px"><Image mt="30px" src={e.img}/></Box>
+<Box w="100%"    h="300px"shadow="rgba(0, 0, 0, 0.05) 0px 0px 0px 1px" display="flex" justifyContent={"space-between"} gap="10px" paddingBottom={"-10px"}>
+   <Box w="25%" h="auto" padding="30px"  ><Image mt="30px" src={e.img}/></Box>
        <Box w="50%" h="auto" >
 
          
            <Heading   _hover={{
            color: 'blue.600',
-         }} fontWeight={"600"} padding="15px" textAlign={"start"} as='h4' size='md'>{e.title}</Heading>
+         }} fontWeight={"600"} padding="15px" textAlign={"start"} as='h4' size='md' >   <Link to={`/single/${e.id}`}  >{e.title}</Link>   </Heading>
           <Box  display="flex" > <Button
          w="50px"
          h="25px"
