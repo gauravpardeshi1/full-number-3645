@@ -5,16 +5,27 @@ import {ChevronDownIcon} from '@chakra-ui/icons'
 export default function Watche(){
     const { isOpen, onOpen, onClose } = useDisclosure();
 const[watchdata,setwatchdata]=useState([])
-
+const[val,setval]=useState("")
 useEffect(()=>{
-    axios.get('http://localhost:8080/watches')
-    .then((res)=>setwatchdata(res.data))
-},[])
+    getData()
+},[val])
 
-console.log(watchdata)
+const getData = ()=>{
+    axios.get(`http://localhost:8080/Watches?_sort=price&_order=${val}`)
+    .then((res)=>setwatchdata(res.data))
+   
+   }
+
+const handleSort = (val)=>{
+    console.log(val)
+    setval(val)
+  
+    
+ 
+ }
     return <>
     
-    <Heading>Watch Products Page</Heading>
+  
     {/* {watchdata.map((e)=> */}
 
 
@@ -27,8 +38,8 @@ console.log(watchdata)
 <Box w="25%" h="auto" shadow="rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px">
 
 <Box  shadow="rgba(17, 17, 26, 0.1) 0px 1px 0px"  w="100%" h="100px" display={"flex"} justifyContent="space-evenly" padding="25px">
-    <Button bg="green.500" color="white" w="100px">ASC</Button>
-    <Button  bg="green.500" color="white" w="100px">DSC</Button>
+    <Button bg="green.500" color="white" w="100px" onClick={()=>handleSort('asc')}>ASC</Button>
+    <Button  bg="green.500" color="white" w="100px" onClick={()=>handleSort('desc')}>DSC</Button>
 </Box>
 <Box   w="100%" h="500px">
 
