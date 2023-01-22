@@ -5,7 +5,9 @@ import Home from '../Pages/Home'
 import Login from '../Pages/Login'
 import Products from '../Pages/Products'
 import Signup from '../Pages/signup'
-import SingleProcuct from '../Pages/SingleProduct'
+import SingleProduct from '../Pages/SingleProduct'
+import SingleProduct2 from '../Pages/singleproduct2'
+import SingleProduct3 from '../Pages/singleproduct3'
 import Electronic from '../Products/Electronic'
 import Mobile from '../Products/Mobile'
 import Watche from '../Products/Watche'
@@ -22,7 +24,9 @@ const AllRoutes=()=>{
         <Route  path="/watchesproducts" element={<Watche/>}/>
         <Route  path="/mobilesproducts" element={<Mobile/>}/>
         <Route  path="/Electronicproducts" element={<Electronic/>}/>
-        <Route  path="/single/:user_id" element={<SingleProcuct/>}/>
+        <Route  path="/single/:user_id" element={<SingleProduct/>}/>
+        <Route  path="/single2/:user_id" element={<SingleProduct2/>}/>
+        <Route  path="/single3/:user_id" element={<SingleProduct3/>}/>
         </Routes>
         </div>
     ) 

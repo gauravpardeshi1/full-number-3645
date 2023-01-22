@@ -1,5 +1,6 @@
 import { Heading ,Box ,Image,Text,Button,MenuList,MenuItem,MenuDivider, useDisclosure,Menu,} from "@chakra-ui/react";
 import {useState,useEffect} from 'react'
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import {ChevronDownIcon} from '@chakra-ui/icons'
 export default function Watche(){
@@ -63,7 +64,7 @@ const handleSort = (val)=>{
          
            <Heading   _hover={{
            color: 'blue.600',
-         }} fontWeight={"600"} padding="15px" textAlign={"start"} as='h4' size='md'>Noise ColorFit Caliber Smart Watch with 15-day battery, 1.69" display, 60 Sports Modes Smartwatch  (Blue Strap, Regular)</Heading>
+         }} fontWeight={"600"} padding="15px" textAlign={"start"} as='h4' size='md'>  <Link to={`/single3/${e.id}`}  >Noise ColorFit Caliber Smart Watch with 15-day battery, 1.69" display, 60 Sports Modes Smartwatch  (Blue Strap, Regular)</Link></Heading>
           <Box  display="flex" > <Button
          w="50px"
          h="25px"

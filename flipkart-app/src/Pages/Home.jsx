@@ -7,13 +7,17 @@ import axios from 'axios';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Carousel123 from './Slider ';
-import { useNavigate } from "react-router-dom";
+import { useContext } from 'react'
+import { Authcontext } from '../Context/AuthContext'
+
 import { Navigate } from 'react-router-dom';
+
+import Banner from './Slider ';
 
 
 
 function Home(){
+  const{isAuth}=useContext(Authcontext)
     const [slider1data,setslider1data]=useState([])
     const [slider2data,setslider2data]=useState([])
     const [slider3data,setslider3data]=useState([])
@@ -98,29 +102,57 @@ function Home(){
         return <Navigate to="/mobilesproducts"/>
       }
       
-      
+      console.log(isAuth)
+
     return <Box >
 
-<Box shadow="rgba(0, 0, 0, 0.1) 0px 1px 2px 0px" display="grid" gridTemplateColumns="repeat(9,1fr)" gap="80px" padding="20px 40px 10px 40px">
+<Box shadow="rgba(0, 0, 0, 0.1) 0px 1px 2px 0px" display="grid" gridTemplateColumns="repeat(9,1fr)" gap="80px" padding="20px 40px 10px 40px"  h="125px">
    
-   <Box onClick={routeChange}> <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/47e5c31ef7dcce1e.png?q=100" size="20px" /><Text    fontWeight={600}>Top offers</Text></Box>
-     <Box onClick={routeChange2}>     <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/5f8bd5669e19e724.png?q=100"/><Text fontWeight={600}>Mobile & Tablets</Text></Box>
-     <Box onClick={routeChange1}>  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/361d53b8725c2d2d.png?q=100"/><Text fontWeight={600}>Electronics</Text></Box>
-     <Box  onClick={routeChange1}>  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/904f3c8e7101408b.png?q=100"/><Text fontWeight={600}>TV Appliances</Text></Box>
-     <Box  >  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/7f7355480c6adc16.png?q=100"/><Text fontWeight={600}>Fashion</Text></Box>
-     <Box>  <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/f97d6138516056bc.png?q=100"/><Text fontWeight={600}>Beauty</Text></Box>
-     <Box><img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/6728ed3cf145562c.png?q=100"/><Text fontWeight={600}>Home & Furniture</Text></Box>
-     <Box> <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/007910082ae6355b.png?q=100"/><Text fontWeight={600}>Flights</Text></Box>
-     <Box> <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/46376ceed3448aff.png?q=100"/><Text fontWeight={600}>Grocery</Text></Box>
+   <Box onClick={routeChange} h="70px" _hover={{
+              color:"blue",
+                cursor:"pointer"
+              }} > <Image h="100%" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/47e5c31ef7dcce1e.png?q=100" /><Text    fontWeight={600}>Offers</Text></Box>
+     <Box onClick={routeChange2} h="70px"  _hover={{
+              color:"blue",
+                cursor:"pointer"
+              }} >     <Image  h="100%"src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/5f8bd5669e19e724.png?q=100"/><Text fontWeight={600}>Mobile</Text></Box>
+     <Box onClick={routeChange1}  h="70px" _hover={{
+              color:"blue",
+                cursor:"pointer"
+              }}  >  <Image  h="100%"src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/361d53b8725c2d2d.png?q=100"/><Text fontWeight={600}>Electronics</Text></Box>
+     <Box  onClick={routeChange1} h="70px"  _hover={{
+              color:"blue",
+                cursor:"pointer"
+              }} >  <Image  h="100%"src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/904f3c8e7101408b.png?q=100"/><Text fontWeight={600}>Appliances</Text></Box>
+     <Box   h="70px"  _hover={{
+              color:"blue",
+                cursor:"pointer"
+              }} >  <Image h="100%" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/7f7355480c6adc16.png?q=100"/><Text fontWeight={600}>Fashion</Text></Box>
+     <Box  h="70px" _hover={{
+              color:"blue",
+                cursor:"pointer"
+              }}  >  <Image h="100%" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/f97d6138516056bc.png?q=100"/><Text fontWeight={600}>Beauty</Text></Box>
+     <Box  h="70px"  _hover={{
+              color:"blue",
+                cursor:"pointer"
+              }} ><Image h="100%" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/6728ed3cf145562c.png?q=100"/><Text fontWeight={600}>Home</Text></Box>
+     <Box  h="70px"  _hover={{
+              color:"blue",
+                cursor:"pointer"
+              }} > <Image  h="100%"src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/007910082ae6355b.png?q=100"/><Text fontWeight={600}>Flights</Text></Box>
+     <Box  h="70px" _hover={{
+              color:"blue",
+                cursor:"pointer"
+              }} > <Image h="100%" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/46376ceed3448aff.png?q=100"/><Text fontWeight={600}>Grocery</Text></Box>
     </Box>
 
     {/* ********MainBox Start********** */}
     <Box paddingRight={"10px"} paddingLeft="10px">
    
-   <Box  border="1px solid blue" w="100%" h="100px" marginTop={"20px"}> 
-            
+   <Box  w="100%" h="300px" marginTop={"10px"}> 
+   <Banner/>
             </Box>
-    <Box   paddingTop={"20px"}paddingBottom={"20px"}>
+    <Box   paddingTop={"10px"}paddingBottom={"20px"}>
         <Box    >
            <Image 
              
@@ -161,7 +193,7 @@ function Home(){
    
   {slider2data.map((e)=>
        <Box _hover={{
-               
+        cursor:"pointer"  ,     
         transform: "scale(1.06)"
       }}   >
         <Box w="170px" h="170px" padding="5px" 
@@ -194,32 +226,32 @@ function Home(){
             <Box mt="10px"  w="100%" h="500px" display="grid" gridTemplateColumns="repeat(3,1fr)"   >
             <Box  w="1320px" h="500px" paddingLeft={"5px"} display="grid" gridTemplateColumns="repeat(3,1fr)" gap="20px" >
 <Box> <Image _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)",
                shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
              }} src="https://images-static.nykaa.com/uploads/88a7cc59-5262-4ef2-8e2f-5c8d9475c47e.jpg?tr=w-600,cm-pad_resize" alt="" />   </ Box>
 <Box><Image _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)",
                shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
              }} src="https://images-static.nykaa.com/uploads/c8bc8f6b-647b-4dfb-897f-d85330fdc747.jpg?tr=w-600,cm-pad_resize" alt=""/> </Box>
 <Box><Image _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)",
                shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
              }} src="https://images-static.nykaa.com/uploads/2f8eafa3-ba57-42e3-825b-a50c1e478610.jpg?tr=w-600,cm-pad_resize" alt=""/> </Box>
 <Box><Image _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)",
                shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
              }} src="https://images-static.nykaa.com/uploads/1ce2fd26-9ad5-44ba-9099-f9b44f59cc2d.jpg?tr=w-600,cm-pad_resize" alt=""/> </Box>
 <Box><Image _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)",
                shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
              }} src="https://images-static.nykaa.com/uploads/0a66c6fe-084f-42e1-aae7-e6b4286ea20f.gif?tr=w-600,cm-pad_resize" alt=""/> </Box>
 <Box><Image  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)",
                shadow:" rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px"
              }}  h="87%" w="110%" src="https://images.meesho.com/images/marketing/1631722939962.webp" alt=""/> </Box>
@@ -228,7 +260,7 @@ function Home(){
 
             <Box mt="10px" w="100%" h="auto" display="grid" gridTemplateColumns="repeat(6,1fr)"  paddingTop={"30px"} paddingLeft="40px" shadow="rgba(50, 50,93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px">
             <Box    _hover={{
-               
+                cursor:"pointer"  ,   
                 transform: "scale(1.06)"
               }}   w="160px" h="300px"><Image   w="100%"  h="210px" src="https://rukminim1.flixcart.com/image/200/200/xif0q/shoe/b/m/n/8-thar-01-asian-slate-blue-orange-original-imaghcknzyx8zr2x.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>Labbin Asin</Heading>
@@ -236,7 +268,7 @@ function Home(){
                 <Text color="gray">Sport Shoes</Text>
                 </Box>
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}  w="160px" h="300px"><Image w="100%"  h="210px" src="https://rukminim1.flixcart.com/image/200/200/xif0q/jacket/8/n/c/xxl-sfjckt6149-sassafras-original-imafwyyf9yrkerhh-bb.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>Never Offer before</Heading>
@@ -244,7 +276,7 @@ function Home(){
                 <Text color="gray">Jacket</Text>
                 </Box>
                 <Box _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}   w="160px" h="300px"><Image w="100%"   h="210px"src="https://rukminim1.flixcart.com/image/200/200/xif0q/shoe/i/i/t/8-hl-wv-001270-42-highlander-white-original-imaghfyzkmzq8wsz.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>ADDIUS PUMA</Heading>
@@ -252,7 +284,7 @@ function Home(){
                 <Text color="gray">Sport Shoes</Text>
                 </Box>
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}   w="160px" h="300px"><Image w="100%" h="210px" src="https://rukminim1.flixcart.com/image/200/200/l44hyfk0/sari/v/d/s/free-orwv5792-belt-chhabra-555-unstitched-original-imagf3kd73r8bbdp.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>Wedding Sarres</Heading>
@@ -260,7 +292,7 @@ function Home(){
                 <Text color="gray">Banarasi</Text>
                 </Box>
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}   w="160px" h="300px"><Image w="100%"  h="210px" src="https://rukminim1.flixcart.com/image/200/200/jwqpocw0/t-shirt/j/w/z/m-fmts8273-flying-machine-original-imafhd87dbpancde.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>SAREES</Heading>
@@ -268,7 +300,7 @@ function Home(){
                 <Text color="gray">Proffesional</Text>
                 </Box>
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}   w="160px" h="300px"><Image w="100%"  h="210px"  src="https://rukminim1.flixcart.com/image/200/200/l1nwnm80/sari/e/b/a/free-2267s101b-saara-unstitched-original-imagd6hvjtmhwueg.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>Sarees</Heading>
@@ -278,7 +310,7 @@ function Home(){
             </Box>
             <Box mt="10px"w="100%" h="auto" display="grid" gridTemplateColumns="repeat(6,1fr)"  paddingTop={"30px"} paddingLeft="40px" shadow="rgba(50, 50,93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px">
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}    w="160px" h="300px"><Image   w="100%"  h="210px" src="https://rukminim1.flixcart.com/image/200/200/kvba7bk0/shoe/x/b/p/-original-imag88gaxkksgrnp.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>ADDIUS PUMA</Heading>
@@ -286,7 +318,7 @@ function Home(){
                 <Text color="gray">Sport Shoes</Text>
                 </Box>
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}   w="160px" h="300px"><Image w="100%"  h="210px" src="https://rukminim1.flixcart.com/image/200/200/k7dnonk0/t-shirt/3/9/h/l-11012234-hrx-by-hrithik-roshan-original-imafpmhbueehv2pk.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>Ti -Shirts</Heading>
@@ -294,7 +326,7 @@ function Home(){
                 <Text color="gray">Sport </Text>
                 </Box>
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}   w="160px" h="300px"><Image w="100%"   h="210px"src="https://rukminim1.flixcart.com/image/200/200/xif0q/trouser/o/3/j/32-maw21ct301i-metronaut-original-imag8vfqwu5xnzkc-bb.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>ADDIUS PUMA</Heading>
@@ -302,7 +334,7 @@ function Home(){
                 <Text color="gray">Sport Shoes</Text>
                 </Box>
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}   w="160px" h="300px"><Image w="100%" h="210px" src="https://rukminim1.flixcart.com/image/200/200/kqgyhe80/shirt/e/7/k/m-men-slim-fit-solid-mandarin-collar-casual-shirt-juhil-bazar-original-imag4h5nphqhwh9h.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>Shirts</Heading>
@@ -310,7 +342,7 @@ function Home(){
                 <Text color="gray">Trending</Text>
                 </Box>
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}   w="160px" h="300px"><Image w="100%"  h="210px" src="https://rukminim1.flixcart.com/image/200/200/xif0q/sari/d/x/o/free-al-almaari-237-orange-avantika-fashion-unstitched-original-imaggzz8xpasewpb.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>SAREES</Heading>
@@ -318,7 +350,7 @@ function Home(){
                 <Text color="gray">Proffesional</Text>
                 </Box>
                 <Box  _hover={{
-               
+                cursor:"pointer"  ,   
                transform: "scale(1.06)"
              }}   w="160px" h="300px"><Image w="100%"  h="210px"  src="https://rukminim1.flixcart.com/image/200/200/xif0q/short/w/i/r/l-solid-men-dark-blue-shorts-adrenex-original-imaghvhr2zvbgp6t.jpeg?q=70"/>
                 <Heading as='h6' size='xs'>Short</Heading>
@@ -367,7 +399,7 @@ function Home(){
    
   {slider1data.map((e)=>
        <Box _hover={{
-               
+        cursor:"pointer"  ,        
         transform: "scale(1.06)"
       }}   >
         <Box h="200px" padding="10px"  onClick={routeChange}
@@ -420,13 +452,13 @@ function Home(){
             </Button>
       </Box>
     <Box w="80%"> 
-
+   
   
      <Carousel  responsive={responsive1}>
    
   {slider3data.map((e)=>
        <Box _hover={{
-               
+        cursor:"pointer"  , 
         transform: "scale(1.06)"
       }}   >
         <Box h="200px" padding="10px" 
@@ -478,7 +510,7 @@ function Home(){
    
   {slider4data.map((e)=>
        <Box _hover={{
-               
+        cursor:"pointer"  ,       
         transform: "scale(1.06)"
       }}   >
         <Box h="200px" padding="10px" onClick={routeChange1}
@@ -505,13 +537,142 @@ function Home(){
     
 
 {/* *********Auto Slider********* */}
-    <Box border="1px solid red">
+    <Box  w="100%" h="290px" bg="gray.800" display="flex"  gap="0px" padding="10px">
+      <Box  color="white" h="100%" w="15%" padding="25px" >
+
+        <Heading as='h6' size='xs' fontWeight={500} textAlign={"start"}   _hover={{
+               
+                cursor:"pointer"
+              }} >ABOUT</Heading>
+        <Heading _hover={{
+               
+                cursor:"pointer"
+              }}  as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Contact Us</Heading>
+        <Heading  _hover={{
+                
+                cursor:"pointer"
+              }} as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">About Us</Heading>
+        <Heading _hover={{
+               
+                cursor:"pointer"
+              }}  as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Careers</Heading>
+        <Heading _hover={{
+               
+                cursor:"pointer"
+              }}  as='h6' size='xs' fontWeight={400}textAlign={"start"} mt="7px">Flipkart Stories</Heading>
+        <Heading  _hover={{
+             
+                cursor:"pointer"
+              }} as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Press</Heading>
+        <Heading _hover={{
+              
+                cursor:"pointer"
+              }}  as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Flipkart</Heading>
+        <Heading  _hover={{
+               
+                cursor:"pointer"
+              }} as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Wholesale</Heading>
+        <Heading _hover={{
+                
+                cursor:"pointer"
+              }} as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Corporate</Heading>
+        <Heading _hover={{
+              
+                cursor:"pointer"
+              }} as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Information</Heading>
+      </Box>
+      <Box color="white"  h="100%" w="15%" padding="25px" _hover={{
+                
+                cursor:"pointer"
+              }} >
+        <Heading as='h6' size='xs' fontWeight={500} textAlign={"start"} >HELP</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Payments</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Shipping</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Cancellation</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Returns</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">FAQ</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Report</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Infrigement</Heading>
+      </Box>
+      <Box  color="white"  h="100%" w="15%" padding="25px" _hover={{
+               
+                cursor:"pointer"
+              }} >
+
+        <Heading as='h6' size='xs' fontWeight={500} textAlign={"start"} >POLICY</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Return policy</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Terms of Use</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Sequrity</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px"> Privicy</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Sitemap</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">EPR Compliance</Heading>
+      </Box>
+      <Box  color="white"  h="100%" w="15%" padding="25px" _hover={{
+                
+                cursor:"pointer"
+              }} >
+
+        <Heading as='h6' size='xs' fontWeight={500} textAlign={"start"}>Social</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Facebook</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Twitter</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">YouTube</Heading>
+      </Box>
+      <Box  color="white"  h="100%" w="15%" padding="25px"  _hover={{
+                color: 'lightblue',
+                cursor:"pointer"
+              }}>
+        <Heading as='h6' size='xs' fontWeight={500} textAlign={"start"}>Mail Us</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Flipkart Internert private</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Building Alyssa</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Clove Embassy Tech</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Outer Ring Road</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Benglaure,5601103</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Karnataka,India</Heading>
+      </Box>
+      <Box  color="white"  h="100%" w="17%" padding="25px" _hover={{
+                
+                cursor:"pointer"
+              }} >
+
+        <Heading as='h6' size='xs' fontWeight={400}textAlign={"start"} >Flipkart Internet Privet Limited</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Building Alyssa Begonia</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Outer Ring Road</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Bangaluru 560103</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">Karnatka India</Heading>
+        <Heading as='h6' size='xs' fontWeight={400} textAlign={"start"} mt="7px">CIN:U51109KA2012PTC066107</Heading>
+        <Heading as='h6' size='xs' fontWeight={400}  textAlign={"start"} mt="7px">Telephone : 004-4561 47000</Heading>
+        
+      </Box>
+     
     {/* <App1/> */}
   
     </Box>
 
+    
           
-
+    <Box borderTop="1px solid gray" w="100%" h="70px" display="flex" justifyContent={"space-evenly"} bg="gray.800" color="white" paddingTop={"20px"}>
+        <Box w="20%" h="100%"  ><Heading as='h5' size='sm' fontWeight={500}   _hover={{
+                color: 'lightblue',
+                cursor:"pointer"
+              }}>Become a seller</Heading></Box>
+        <Box w="20%" h="100%"   _hover={{
+                color: 'lightblue',
+                cursor:"pointer"
+              }}><Heading as='h5' size='sm' fontWeight={500}>Advertise</Heading></Box>
+        <Box w="20%" h="100%"  _hover={{
+                color: 'lightblue',
+                cursor:"pointer"
+              }} ><Heading as='h5' size='sm' fontWeight={500}>Gift Card</Heading></Box>
+        <Box w="20%" h="100%"  _hover={{
+                color: 'lightblue',
+                cursor:"pointer"
+              }} ><Heading as='h5' size='sm' fontWeight={500}>Help Center</Heading></Box>
+        <Box w="20%" h="100%" _hover={{
+                color: 'lightblue',
+                cursor:"pointer"
+              }} ><Heading as='h5' size='sm' fontWeight={500}>2007 -2023 Flipkart.com</Heading></Box>
+        <Box w="45%" h="100%" paddingLeft="10px"  ><Image src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/payment-method_69e7ec.svg"/></Box>
+      </Box>
 
 
 

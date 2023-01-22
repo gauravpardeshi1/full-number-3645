@@ -1,8 +1,9 @@
 import { Search2Icon } from '@chakra-ui/icons'
 import { useState } from 'react';
-import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
-
-
+import { ChevronDownIcon, ChevronUpIcon ,ArrowRightIcon} from '@chakra-ui/icons'
+import toast, { Toaster } from 'react-hot-toast';
+import { useContext } from 'react'
+import { Authcontext } from '../Context/AuthContext'
 import {
   Box,
   Flex,
@@ -26,8 +27,9 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Navigate } from 'react-router-dom';
 
 const Links = ['Become a seller', 'More', 'Cart' ];
-
+const name4 = localStorage.getItem("name")
 const NavLink = ({ children }) => (
+ 
   <Link
   fontWeight={600}
     px={2}
@@ -37,13 +39,13 @@ const NavLink = ({ children }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'/cart'}>
+    href={name4===null?'/':'/cart'}>
     {children}
   </Link>
 );
 
 export default function Navbar() {
-   
+  const{isAuth}=useContext(Authcontext)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [login,setlogin]=useState(false)
   
@@ -54,17 +56,30 @@ export default function Navbar() {
    return  <Navigate to="/"/>
    }
    
+  const username= localStorage.getItem("name")
+  let useremail = localStorage.getItem('email')
+ const logout=()=>{
   
+  toast.success("Logout successfully")
+  localStorage.removeItem("name")
+  localStorage.removeItem("email")
+  localStorage.removeItem("pass")
+ }
+ const name4=localStorage.getItem("name")
   return (
     <>
+    <Toaster/>
       <Box bg={('blue.400')} px={4} >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
          
           <HStack spacing={8} alignItems={'center'}>
-            <Box ml="250px"  w="50px" h="50px" > <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwoD94XDfvj9BmL6IA0Svzisv6poq3NNOX9g&usqp=CAU" /></Box>
+            <Box _hover={{
+              
+                cursor:"pointer"
+              }}  ml="250px"  w="50px" h="50px" onClick={()=> window.location.href = "/"} > <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM2DAqDI_bCUv59V0fKRl4gC5prkJQ4uizqw&usqp=CAU" /></Box>
            <Box w="400px"  display="flex"  bg="white"><Input w="100%" placeholder="Search for Products Brands & more" borderRadius={"0rem"} bg="white"  paddingLeft={"35px"} /><Search2Icon position={"absolute"} mt="12px" ml="5px" fontSize="18px" color="blue"/></Box> 
            <Menu   isOpen={isOpen}>
-            <MenuButton 
+            <MenuButton onClick={()=> window.location.href = "/login"}
                 variant="ghost"
                 mx={1}
                 py={[1, 2, 2]}
@@ -90,9 +105,11 @@ export default function Navbar() {
               }}>
               Login 
             </Button>
+        
             </MenuButton>
+                
             <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
-            <MenuItem>New Customer?<Text ml="10px" fontWeight={500} color="blue" > <Link to={`/login`}>Sign Up</Link></Text></MenuItem>
+            <MenuItem>New Customer?<Text ml="10px" fontWeight={500} color="blue"  onClick={()=> window.location.href = "/signup"}> Sign Up</Text></MenuItem>
                 <MenuDivider />
                 <MenuItem>My Profile</MenuItem>
                 <MenuDivider />
@@ -104,7 +121,7 @@ export default function Navbar() {
                 <MenuDivider />
                 <MenuItem>Rewards</MenuItem>
                 <MenuDivider />
-                <MenuItem>Gift Card</MenuItem>
+                <MenuItem onClick={logout}>Logout User  <ArrowRightIcon ml="5px"/></MenuItem>
               
                 
             </MenuList>
@@ -134,15 +151,18 @@ export default function Navbar() {
               <Avatar 
                   size={'sm'}
                   src={
-                    'https://media.licdn.com/dms/image/D5603AQGopbg0SN2XkQ/profile-displayphoto-shrink_100_100/0/1672951836707?e=1679529600&v=beta&t=QxbebalxSFJ-ZFBQKWY2NBfJr0bjvKUkeu40NkpM8nE'
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4CRKPij6o2waFROp-89BCE8lEf96jLsndRQ&usqp=CAU'
                   }
                 />
+                <Text color="white" fontSize={"12px"}>{username}</Text>
               </MenuButton>
               <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
+              <MenuItem>My Profile</MenuItem>
+              <MenuDivider />
+                <MenuItem>Username : {username}</MenuItem>
+                <MenuItem>UserEmail : {useremail}</MenuItem>
+                
+               
               </MenuList>
             </Menu>
           </Flex>

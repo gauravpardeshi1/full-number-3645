@@ -2,6 +2,7 @@
 import { Heading ,Box ,Image,Text,Button,MenuList,MenuItem,MenuDivider, useDisclosure,Menu,} from "@chakra-ui/react";
 import {useState,useEffect} from 'react'
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import {ChevronDownIcon} from '@chakra-ui/icons'
 export default function Mobile(){
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -64,7 +65,7 @@ const handleSort = (val)=>{
          
            <Heading   _hover={{
            color: 'blue.600',
-         }} fontWeight={"600"} padding="15px" textAlign={"start"} as='h4' size='md'>{e.title}</Heading>
+         }} fontWeight={"600"} padding="15px" textAlign={"start"} as='h4' size='md'> <Link to={`/single2/${e.id}`}  >{e.title}</Link></Heading>
           <Box  display="flex" > <Button
          w="50px"
          h="25px"

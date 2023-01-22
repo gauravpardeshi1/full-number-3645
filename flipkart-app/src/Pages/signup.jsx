@@ -1,3 +1,5 @@
+import toast, { Toaster } from 'react-hot-toast';
+
 import {
     Flex,
     Box,
@@ -14,9 +16,11 @@ import {
     useColorModeValue,
     Link,
   } from '@chakra-ui/react';
+  
   import axios from 'axios'
   import { useRef } from 'react';
   import { useState,useEffect } from 'react';
+  import { useNavigate } from "react-router-dom";
   import {
     Alert,
     AlertIcon,
@@ -24,32 +28,50 @@ import {
     AlertDescription,
   } from '@chakra-ui/react'
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-  
+  import { Navigate } from 'react-router-dom';
+
   export default function SignupCard() {
     const name=useRef(' ')
     const surname=useRef(' ')
     const email=useRef(' ')
     const pass=useRef(' ')
     const [showPassword, setShowPassword] = useState(false);
-    const Name=name.current.value +" " +surname.current.value
-    const Pass=pass.current.value
-    const Email=email.current.value
+    const[auth,setauth]=useState(false)
 
    
-    const succes= async()=>{
-   
-   //console.log(Name)
-  await axios.post('http://localhost:3000/signup', {
-    name: Name,
-    email:Email,
-    pass:Pass
-    
-  })
-  .then((response)=> {
-    console.log(response.data);
-  })
+    const handleclick= async()=>{
+      setauth(true)
+      const Name=name.current.value +" " +surname.current.value
+      const Pass=pass.current.value
+      const Email=email.current.value
+ 
+ 
   
+  if(Name=="" ){
+    toast.error("please fill the name")
   }
+  else if(Pass==""){
+    toast.error("please fill the password")
+  }
+  else if(Email==""){
+    toast.error("please fill the email")
+  }
+  else{
+    
+    localStorage.setItem( "email",Email);
+    localStorage.setItem( "pass",Pass);
+    toast.success("Signup successfully")
+   
+    setInterval(function () {window.location.href = "/login"}, 400);
+  }
+    
+  }
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `newPath`; 
+    navigate(path);
+  }
+
     return (
         
       <Flex
@@ -61,12 +83,11 @@ import {
             
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'} textAlign={'center'}>
-              Sign up
+          <Toaster/>
+            <Heading fontSize={'3xl'} textAlign={'center'} color="gray.600">
+              SIGN UP
             </Heading>
-            <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our cool features ✌️
-            </Text>
+            
           </Stack>
           <Box
             rounded={'lg'}
@@ -108,7 +129,7 @@ import {
                 </InputGroup>
               </FormControl>
               <Stack spacing={10} pt={2}>
-                <Button onClick={succes}
+                <Button onClick={handleclick}
                   loadingText="Submitting"
                   size="lg"
                   bg={'blue.400'}
@@ -116,12 +137,12 @@ import {
                   _hover={{
                     bg: 'blue.500',
                   }}>
-                  Sign up
+                Sign up
                 </Button>
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'}>Login</Link>
+                  Already a user? <Link  color={'blue.400'} onClick={()=> window.location.href = "/login"}>Login</Link>
                 </Text>
               </Stack>
             </Stack>

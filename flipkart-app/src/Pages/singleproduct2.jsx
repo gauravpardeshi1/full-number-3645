@@ -7,10 +7,10 @@ import { Authcontext } from '../Context/AuthContext'
 import { Link } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 const getdata=(id)=>{
-  return fetch(`http://localhost:8080/Tv/${id}`).then((res)=> res.json())
+  return fetch(`http://localhost:8080/Mobiles/${id}`).then((res)=> res.json())
 }
 
-export default function SingleProduct(){
+export default function SingleProduct2(){
   const{val}=useContext(Authcontext)
    const [Data,setData]=useState({})
    let params=useParams()
@@ -27,13 +27,10 @@ export default function SingleProduct(){
     const Name=Data.title
     const Img =Data.img 
     const Price =Data.price
-    const name3=localStorage.getItem("name")
     const addcart=()=>{
-      if(name3==null){
-        toast.error("please login first")
-      }else{
-        toast.success("Product added to cart")
-        axios.post('http://localhost:8080/cart', {
+      console.log(val)
+      toast.success("Product added to cart")
+          axios.post('http://localhost:8080/cart', {
             title: Name,
             price: Price,
             img:Img
@@ -44,13 +41,10 @@ export default function SingleProduct(){
           .catch(function (error) {
             console.log(error);
           });
-      }
-
     }
 
 
-   
-   
+    console.log(val)
 
    return <> 
    <Toaster/>
