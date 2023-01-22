@@ -7,10 +7,10 @@ import { Authcontext } from '../Context/AuthContext'
 import { Link } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 const getdata=(id)=>{
-  return fetch(`http://localhost:8080/Tv/${id}`).then((res)=> res.json())
+  return fetch(`http://localhost:8080/watches/${id}`).then((res)=> res.json())
 }
 
-export default function SingleProduct(){
+export default function SingleProduct3(){
   const{val}=useContext(Authcontext)
    const [Data,setData]=useState({})
    let params=useParams()
@@ -27,14 +27,11 @@ export default function SingleProduct(){
     const Name=Data.title
     const Img =Data.img 
     const Price =Data.price
-    const name3=localStorage.getItem("name")
     const addcart=()=>{
-      if(name3==null){
-        toast.error("please login first")
-      }else{
-        toast.success("Product added to cart")
+      console.log(val)
+      toast.success("Product added to cart")
         axios.post('http://localhost:8080/cart', {
-            title: Name,
+            title: "Noise ColorFit Caliber Smart Watch with 15-day battery, 1.69 display, 60 Sports Modes Smartwatch (Blue Strap, Regular)",
             price: Price,
             img:Img
           })
@@ -44,13 +41,10 @@ export default function SingleProduct(){
           .catch(function (error) {
             console.log(error);
           });
-      }
-
     }
 
 
-   
-   
+    console.log(val)
 
    return <> 
    <Toaster/>
@@ -96,7 +90,7 @@ export default function SingleProduct(){
          
            <Heading   _hover={{
            color: 'blue.600',
-         }} fontWeight={"600"} padding="15px" textAlign={"start"} as='h4' size='md' >{Data?.title}</Heading>
+         }} fontWeight={"600"} padding="15px" textAlign={"start"} as='h4' size='md' >Noise ColorFit Caliber Smart Watch with 15-day battery, 1.69" display, 60 Sports Modes Smartwatch (Blue Strap, Regular)</Heading>
           <Box  display="flex" > <Button
          w="50px"
          h="25px"

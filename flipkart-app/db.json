@@ -351,7 +351,7 @@
     {
       "id": 4,
       "title": "SAMSUNG 80 cm (32 Inch) HD Ready LED Smart Tizen TV with 2022 Model",
-      "img": "https://rukminim1.flixcart.com/image/312/312/xif0q/television/n/k/q/-original-imaghu25za2hq7dy.jpeg?q=70",
+      "img": "https://rukminim1.flixcart.com/image/312/312/l3nco7k0/television/s/q/m/-original-imageq5eptqwxcv8.jpeg?q=70",
       "price": 12999
     },
     {
@@ -455,17 +455,276 @@
   ],
   "cart": [
     {
-      "title": "LG UQ7500 108 cm (43 inch) Ultra HD (4K) LED Smart WebOS TV 2022 Edition  (43UQ7500PSF)",
-      "price": 10000,
-      "img": "https://rukminim1.flixcart.com/image/312/312/kqidx8w0/television/m/1/v/32ha0a00-oneplus-original-imag4gy8yezxdhen.jpeg?q=70",
+      "title": "Noise ColorFit Caliber Smart Watch with 15-day battery, 1.69 display, 60 Sports Modes Smartwatch (Blue Strap, Regular)",
+      "price": 199,
+      "img": "https://rukminim1.flixcart.com/image/312/312/xif0q/smartwatch/f/r/z/-original-imaggtzta6yd73kf.jpeg?q=70",
+      "id": 1
+    }
+  ],
+  "signup": [
+    {
+      "name": "amol Pardeshi",
+      "email": "gauravpardeshi068@gmail.com",
+      "pass": "1234",
       "id": 1
     },
     {
-      "title": "LG UQ7500 108 cm (43 inch) Ultra HD (4K) LED Smart WebOS TV 2022 Edition  (43UQ7500PSF)",
-      "price": 10000,
-      "img": "https://rukminim1.flixcart.com/image/312/312/kqidx8w0/television/m/1/v/32ha0a00-oneplus-original-imag4gy8yezxdhen.jpeg?q=70",
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1234",
       "id": 2
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1234",
+      "id": 3
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "",
+      "id": 4
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1234",
+      "id": 5
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1234",
+      "id": 6
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1111",
+      "id": 7
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1111",
+      "id": 8
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1111",
+      "id": 9
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1111",
+      "id": 10
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1111",
+      "id": 11
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpadeshi068@gmail.com",
+      "pass": "1111",
+      "id": 12
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 13
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 14
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 15
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpardeshi068gmail.com",
+      "pass": "1234",
+      "id": 16
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpardeshi068gmail.com",
+      "pass": "1234",
+      "id": 17
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpardeshi068gmail.com",
+      "pass": "",
+      "id": 18
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 19
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 20
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 21
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 22
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 23
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 24
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 25
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 26
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 27
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 28
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 29
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 30
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 31
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 32
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 33
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 34
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 35
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 36
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 37
+    },
+    {
+      "name": "Gaurav ",
+      "email": "",
+      "pass": "",
+      "id": 38
+    },
+    {
+      "name": "Gaurav ",
+      "email": "",
+      "pass": "",
+      "id": 39
+    },
+    {
+      "name": " ",
+      "email": "",
+      "pass": "",
+      "id": 40
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpardeshi068gmail.com",
+      "pass": "",
+      "id": 41
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpardeshi068gmail.com",
+      "pass": "",
+      "id": 42
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpardeshi068gmail.com",
+      "pass": "1134",
+      "id": 43
+    },
+    {
+      "name": "Gaurav Pardeshi",
+      "email": "gauravpardeshi068gmail.com",
+      "pass": "1111",
+      "id": 44
     }
-  ],
-  "signup": []
+  ]
 }

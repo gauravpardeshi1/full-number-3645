@@ -33,15 +33,20 @@ const[quantity,setquantity]=useState(1)
   
    return <> 
    {/* **********Main Box********** */}
- 
+   
+   <Box bg="gray.500" h="50px" > <Heading paddingTop={"12px"}  as='h3' size='md' color="white"> CART SECTION</Heading></Box>
+
+
+   
+    
    <Box>
      
   
-     <Box display="flex"  padding="40px"border="1px solid gray"  gap="30px">
+     <Box display="flex"  padding="40px"  gap="30px">
      <Box   w="70%"  shadow="rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"  padding="30px">
     {cartdata.map((e)=>  
      <Box   h="250px" display={"flex"} shadow="rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset" >
-        <Box  w="30%" h="100%" padding="15px" paddingTop="40px">
+        <Box  w="30%" h="100%" padding="25px" paddingTop="40px">
            <Image src={e.img}/>
            <Button
         w="50px"
