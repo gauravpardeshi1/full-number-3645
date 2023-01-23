@@ -1,7 +1,7 @@
 Name :- FlipKart-Project(https://www.flipkart.com/)
 Project Code :- 
 full-number-3645
-
+IA Manager - Moshin Iqbal
 The Project Make My-App User the following technologies;
 
 1.HTML
