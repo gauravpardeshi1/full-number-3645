@@ -1,4 +1,4 @@
-Name :- FlipKart-Project
+Name :- FlipKart-Project(https://www.flipkart.com/)
 Project Code :- 
 full-number-3645
 
@@ -15,4 +15,9 @@ JavaScript
 8.React crousal liberly
 9.React icons 
 
+To view The website please folow these steps:
 
+1 Run json-server on port 8080 by using the command (json-server --watch db.json --port 8080)
+2. Open the Web Browser 
+Completion Time of Project :- 4 Days
+Link of the Project :- https://flipkart-app-woad.vercel.app/
