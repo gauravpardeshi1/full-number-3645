@@ -2,7 +2,7 @@ Name :- FlipKart-Project(https://www.flipkart.com/)
 Project Code :- 
 full-number-3645
 
-The Project namwed My-App User the following technologies;
+The Project Make My-App User the following technologies;
 
 1.HTML
 2.CSS
