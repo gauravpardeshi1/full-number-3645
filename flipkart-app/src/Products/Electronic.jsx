@@ -14,7 +14,7 @@ useEffect(()=>{
 },[val])
 
 const getData = ()=>{
-    axios.get(`http://localhost:8080/Tv?_sort=price&_order=${val}`)
+    axios.get(`https://kind-cyan-snapper-hose.cyclic.app/Tv?_sort=price&_order=${val}`)
     .then((res)=>setTVdata(res.data))
    
    }

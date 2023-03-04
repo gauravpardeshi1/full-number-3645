@@ -7,7 +7,7 @@ import { Authcontext } from '../Context/AuthContext'
 import { Link } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 const getdata=(id)=>{
-  return fetch(`http://localhost:8080/Mobiles/${id}`).then((res)=> res.json())
+  return fetch(`https://kind-cyan-snapper-hose.cyclic.app/Mobiles/${id}`).then((res)=> res.json())
 }
 
 export default function SingleProduct2(){
@@ -30,7 +30,7 @@ export default function SingleProduct2(){
     const addcart=()=>{
       console.log(val)
       toast.success("Product added to cart")
-          axios.post('http://localhost:8080/cart', {
+          axios.post('https://kind-cyan-snapper-hose.cyclic.app/cart', {
             title: Name,
             price: Price,
             img:Img

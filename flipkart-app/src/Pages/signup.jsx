@@ -62,7 +62,7 @@ import {
     localStorage.setItem( "pass",Pass);
     toast.success("Signup successfully")
    
-    setInterval(function () {window.location.href = "/login"}, 400);
+   
   }
     
   }

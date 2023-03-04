@@ -26,13 +26,13 @@ function Home(){
     const [nav1,setnav1]=useState(false)
     const [nav2,setnav2]=useState(false)
     useEffect(()=>{
-      axios.get('http://localhost:8080/slider1')
+      axios.get('https://kind-cyan-snapper-hose.cyclic.app/slider1')
       .then((res)=>setslider1data(res.data))
-      axios.get('http://localhost:8080/slider2')
+      axios.get('https://kind-cyan-snapper-hose.cyclic.app/slider2')
       .then((res)=>setslider2data(res.data))
-      axios.get('http://localhost:8080/slider3')
+      axios.get('https://kind-cyan-snapper-hose.cyclic.app/slider3')
       .then((res)=>setslider3data(res.data))
-      axios.get('http://localhost:8080/slider4')
+      axios.get('https://kind-cyan-snapper-hose.cyclic.app/slider4')
       .then((res)=>setslider4data(res.data))
 
 

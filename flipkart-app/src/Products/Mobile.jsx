@@ -13,7 +13,7 @@ useEffect(()=>{
 },[val])
 
 const getData = ()=>{
-    axios.get(`http://localhost:8080/Mobiles?_sort=price&_order=${val}`)
+    axios.get(`https://kind-cyan-snapper-hose.cyclic.app/Mobiles?_sort=price&_order=${val}`)
     .then((res)=>setmobiledata(res.data))
    
    }

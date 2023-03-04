@@ -10,7 +10,7 @@ const [cartdata,setcartdata]=useState([])
 const[quantity,setquantity]=useState(1)
    
    const getdata=()=>{
-      axios.get('http://localhost:8080/cart')
+      axios.get('https://kind-cyan-snapper-hose.cyclic.app/cart')
       .then((res)=>setcartdata(res.data) )
      
    }
@@ -29,7 +29,7 @@ const[quantity,setquantity]=useState(1)
    // console.log(sum)
    
    let total=sum*quantity
-   let dis=total-(total/10)
+   let dis=Math.floor(total-(total/10))
   
    return <> 
    {/* **********Main Box********** */}
@@ -75,7 +75,7 @@ const[quantity,setquantity]=useState(1)
        
         <Button  color={'white'}
        borderRadius="0.2rem"
-        bg={'red.500'} w="20%" onClick={  async()=>  await axios.delete(`http://localhost:8080/cart/${e.id}`).then((res)=>getdata() )  }   >Remove</Button>
+        bg={'red.500'} w="20%" onClick={  async()=>  await axios.delete(`https://kind-cyan-snapper-hose.cyclic.app/cart/${e.id}`).then((res)=>getdata() )  }   >Remove</Button>
         
         <Button w="30%" color={'white'}
        borderRadius="0.2rem"

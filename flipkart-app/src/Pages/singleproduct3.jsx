@@ -7,7 +7,7 @@ import { Authcontext } from '../Context/AuthContext'
 import { Link } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 const getdata=(id)=>{
-  return fetch(`http://localhost:8080/watches/${id}`).then((res)=> res.json())
+  return fetch(`https://kind-cyan-snapper-hose.cyclic.app/watches/${id}`).then((res)=> res.json())
 }
 
 export default function SingleProduct3(){
@@ -30,7 +30,7 @@ export default function SingleProduct3(){
     const addcart=()=>{
       console.log(val)
       toast.success("Product added to cart")
-        axios.post('http://localhost:8080/cart', {
+        axios.post('https://kind-cyan-snapper-hose.cyclic.app/cart', {
             title: "Noise ColorFit Caliber Smart Watch with 15-day battery, 1.69 display, 60 Sports Modes Smartwatch (Blue Strap, Regular)",
             price: Price,
             img:Img
