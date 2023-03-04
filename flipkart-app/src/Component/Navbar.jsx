@@ -4,6 +4,7 @@ import { ChevronDownIcon, ChevronUpIcon ,ArrowRightIcon} from '@chakra-ui/icons'
 import toast, { Toaster } from 'react-hot-toast';
 import { useContext } from 'react'
 import { Authcontext } from '../Context/AuthContext'
+import { useRef } from 'react';
 import {
   Box,
   Flex,
@@ -45,6 +46,14 @@ const NavLink = ({ children }) => (
 );
 
 export default function Navbar() {
+const name23=useRef("")
+
+
+ const handlesearch =()=>{
+  const Name23=name23.current.value 
+  console.log(Name23)
+ }
+ 
   const{isAuth}=useContext(Authcontext)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [login,setlogin]=useState(false)
@@ -53,6 +62,7 @@ export default function Navbar() {
    setlogin(true)
   }
   if(login){
+    
    return  <Navigate to="/"/>
    }
    
@@ -77,7 +87,7 @@ export default function Navbar() {
               
                 cursor:"pointer"
               }}  ml="250px"  w="50px" h="50px" onClick={()=> window.location.href = "/"} > <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM2DAqDI_bCUv59V0fKRl4gC5prkJQ4uizqw&usqp=CAU" /></Box>
-           <Box w="400px"  display="flex"  bg="white"><Input w="100%" placeholder="Search for Products Brands & more" borderRadius={"0rem"} bg="white"  paddingLeft={"35px"} /><Search2Icon position={"absolute"} mt="12px" ml="5px" fontSize="18px" color="blue"/></Box> 
+           <Box w="400px"  display="flex"  bg="white"><Input  ref={name23} w="100%" placeholder="Search for Products Brands & more" borderRadius={"0rem"} bg="white"  paddingLeft={"35px"} /><Search2Icon onClick={handlesearch}  position={"absolute"} mt="12px" ml="5px" fontSize="18px" color="blue"/></Box> 
            <Menu   isOpen={isOpen}>
             <MenuButton onClick={()=> window.location.href = "/login"}
                 variant="ghost"
